@@ -6,8 +6,7 @@ import static transport.LoadCapacity.*;
 import transport.TransportService;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -96,6 +95,12 @@ public class Main {
         STO sto = new STO();
         sto.addTransportToQueue(cars[0]);
         sto.addTransportToQueue(trucks[3]);
+
+        Map<Transport, Mechanic[]> transportTeamMap = new HashMap<>();
+        transportTeamMap.put(cars[0], cars[0].getMechanics().toArray(new Mechanic[0]));
+        transportTeamMap.put(trucks[3], trucks[3].getMechanics().toArray(new Mechanic[0]));
+        System.out.println(Arrays.toString(transportTeamMap.get(cars[0])));
+        System.out.println(Arrays.toString(transportTeamMap.get(trucks[3])));
     }
     public static void checkDriver (Driver... drivers){
         for (Driver driver : drivers) {

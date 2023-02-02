@@ -72,6 +72,7 @@ public abstract class Transport {
     public int hashCode() {
         return Objects.hash(brand, model, engineVolume);
     }
+
     public abstract void startMoving();
     public abstract void stopMoving();
     public abstract void pitStop();
