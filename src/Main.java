@@ -65,6 +65,7 @@ public class Main {
         Mechanic mechanic6 = new Mechanic<>("Nicolis", "Service6");
 
         mechanic1.addTransportClass(Car.class);
+        mechanic1.addTransportClass(Car.class);
         mechanic2.addTransportClass(Car.class);
         mechanic3.addTransportClass(Truck.class);
         mechanic4.addTransportClass(Truck.class);
