@@ -47,10 +47,23 @@ public class Mechanic <T extends Transport & Competitor> {
     public void addTransportClass (Class <? extends Transport> transportClass) {
         classList.add(transportClass);
     }
-    @Override
+    /*@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        Mechanic<?> mechanic = (Mechanic<?>) o;
+        return Objects.equals(fullName, mechanic.fullName) && Objects.equals(company, mechanic.company) && Objects.equals(classList, mechanic.classList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName, company, classList);
+    }*/
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Mechanic)) return false;
         Mechanic<?> mechanic = (Mechanic<?>) o;
         return Objects.equals(fullName, mechanic.fullName) && Objects.equals(company, mechanic.company) && Objects.equals(classList, mechanic.classList);
     }

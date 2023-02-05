@@ -70,7 +70,7 @@ public abstract class Transport {
     }
     @Override
     public int hashCode() {
-        return Objects.hash(brand, model, engineVolume);
+        return Objects.hash(brand, model, engineVolume, drivers, mechanics);
     }
 
     public abstract void startMoving();
