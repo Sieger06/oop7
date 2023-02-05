@@ -65,7 +65,6 @@ public class Main {
         Mechanic mechanic6 = new Mechanic<>("Nicolis", "Service6");
 
         mechanic1.addTransportClass(Car.class);
-        mechanic1.addTransportClass(Car.class);
         mechanic2.addTransportClass(Car.class);
         mechanic3.addTransportClass(Truck.class);
         mechanic4.addTransportClass(Truck.class);
@@ -101,6 +100,25 @@ public class Main {
         transportTeamMap.put(trucks[3], trucks[3].getMechanics().toArray(new Mechanic[0]));
         System.out.println(Arrays.toString(transportTeamMap.get(cars[0])));
         System.out.println(Arrays.toString(transportTeamMap.get(trucks[3])));
+
+        Set<Mechanic> mechanicSet = new HashSet<>();
+        Mechanic[] mechanicCar = new Mechanic[cars[0].getMechanics().size()];
+        cars[0].getMechanics().toArray(mechanicCar);
+        for (int i = 0; i < mechanicCar.length; i++) {
+            mechanicSet.add(mechanicCar[i]);
+        }
+        Mechanic[] mechanicTruck = new Mechanic[trucks[3].getMechanics().size()];
+        trucks[3].getMechanics().toArray(mechanicTruck);
+        for (int i = 0; i < mechanicTruck.length; i++) {
+            mechanicSet.add(mechanicTruck[i]);
+        }
+
+
+        Iterator<Mechanic> mechanicIterator = mechanicSet.iterator();
+        while (mechanicIterator.hasNext()) {
+            System.out.println(mechanicIterator.next());
+        }
+
     }
     public static void checkDriver (Driver... drivers){
         for (Driver driver : drivers) {
