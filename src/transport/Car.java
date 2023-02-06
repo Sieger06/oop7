@@ -64,7 +64,6 @@ public class Car extends Transport implements Competitor {
             System.out.println("Mechanic " + mechanic.getFullName() + " doesn`t work with " + this.getClass().getSimpleName());
         }
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -53,7 +53,6 @@ public class Truck extends Transport implements Competitor {
                 System.out.println("Mechanic " + mechanic.getFullName() + " doesn`t work with " + this.getClass().getSimpleName());
             }
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -62,7 +61,6 @@ public class Truck extends Transport implements Competitor {
         Truck truck = (Truck) o;
         return loadCapacity == truck.loadCapacity;
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), loadCapacity);

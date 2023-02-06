@@ -45,7 +45,6 @@ public class Bus extends Transport implements Competitor {
         Bus bus = (Bus) o;
         return busCapacity == bus.busCapacity;
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), busCapacity);
