@@ -48,9 +48,23 @@ public abstract class Driver <T extends Transport> {
             this.drivingExperience = drivingExperience;
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Driver)) return false;
+        Driver<?> driver = (Driver<?>) o;
+        return drivingExperience == driver.drivingExperience && fullName.equals(driver.fullName) && driversLicence.equals(driver.driversLicence);
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(fullName, driversLicence, drivingExperience);
     }
+
+    /*public int hashCode() {
+                return Objects.hash(fullName, driversLicence, drivingExperience);
+            }*/
     public void startMoving() {
         System.out.printf("The driver %s started is moving.", this.fullName);
     }

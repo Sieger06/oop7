@@ -3,6 +3,8 @@ package transport;
 import Drivers.Driver;
 import Drivers.Mechanic;
 
+import java.util.Objects;
+
 public class Truck extends Transport implements Competitor {
     private LoadCapacity loadCapacity;
     public Truck(String brand, String model, double engineVolume, LoadCapacity loadCapacity) {
@@ -50,5 +52,19 @@ public class Truck extends Transport implements Competitor {
             } else {
                 System.out.println("Mechanic " + mechanic.getFullName() + " doesn`t work with " + this.getClass().getSimpleName());
             }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Truck)) return false;
+        if (!super.equals(o)) return false;
+        Truck truck = (Truck) o;
+        return loadCapacity == truck.loadCapacity;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), loadCapacity);
     }
 }

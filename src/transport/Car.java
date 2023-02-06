@@ -3,6 +3,8 @@ package transport;
 import Drivers.Driver;
 import Drivers.Mechanic;
 
+import java.util.Objects;
+
 public class Car extends Transport implements Competitor {
     private BodyType bodyType;
 
@@ -61,5 +63,19 @@ public class Car extends Transport implements Competitor {
         } else {
             System.out.println("Mechanic " + mechanic.getFullName() + " doesn`t work with " + this.getClass().getSimpleName());
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Car)) return false;
+        if (!super.equals(o)) return false;
+        Car car = (Car) o;
+        return bodyType == car.bodyType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), bodyType);
     }
 }

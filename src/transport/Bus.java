@@ -1,4 +1,7 @@
 package transport;
+
+import java.util.Objects;
+
 public class Bus extends Transport implements Competitor {
     private BusCapacity busCapacity;
     public Bus(String brand, String model, double engineVolume, BusCapacity busCapacity) {
@@ -33,5 +36,18 @@ public class Bus extends Transport implements Competitor {
     }
     public void printType() {
         System.out.println("bus capacity: " + busCapacity);
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Bus)) return false;
+        if (!super.equals(o)) return false;
+        Bus bus = (Bus) o;
+        return busCapacity == bus.busCapacity;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), busCapacity);
     }
 }
